@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+<% unless @user.bookmarks.empty? %>
+  <ul>
+    <% @user.resources.each do |resource| %>
+      <li><%= link_to resource.link %></li>
+    <% end %>
+  </ul>
+<% end%>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

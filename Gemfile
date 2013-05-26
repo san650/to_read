@@ -21,10 +21,7 @@ end
 
 gem 'jquery-rails'
 
-group :production do
-  gem 'pg'
-end
-
+gem 'pg'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'

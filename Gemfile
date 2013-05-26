@@ -20,7 +20,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'therubyracer'
 gem 'pg'
 group :development, :test do
   gem 'sqlite3'

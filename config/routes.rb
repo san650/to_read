@@ -2,7 +2,7 @@ ToRead::Application.routes.draw do
   resources :users
   resources :resources
 
-  match ':name' => 'users#show_by_name'
+  match ':name' => 'users#show_by_name', :as => :user
 
 
   # The priority is based upon order of creation:

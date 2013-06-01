@@ -3,15 +3,14 @@ class Resource < ActiveRecord::Base
   has_many :bookmarks
 
   validates :link, :presence => true
-  before_validation :trim_link
+
+  before_validation do
+    self.link.strip! unless self.link.nil?
+  end
 
   after_create :assign_link_to_everyone
 
   private
-
-  def trim_link
-    @link.strip! unless @link.nil?
-  end
 
   def assign_link_to_everyone
     User.all.each do |user|

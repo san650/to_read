@@ -1,26 +1,4 @@
 class ResourcesController < ApplicationController
-  # GET /resources
-  # GET /resources.json
-  def index
-    @resources = Resource.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @resources }
-    end
-  end
-
-  # GET /resources/1
-  # GET /resources/1.json
-  def show
-    @resource = Resource.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @resource }
-    end
-  end
-
   # GET /resources/new
   # GET /resources/new.json
   def new
@@ -44,7 +22,7 @@ class ResourcesController < ApplicationController
 
     respond_to do |format|
       if @resource.save
-        format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
+        format.html { redirect_to new_resource_path, notice: 'Resource was successfully created.' }
         format.json { render json: @resource, status: :created, location: @resource }
       else
         format.html { render action: "new" }
@@ -60,7 +38,7 @@ class ResourcesController < ApplicationController
 
     respond_to do |format|
       if @resource.update_attributes(params[:resource])
-        format.html { redirect_to @resource, notice: 'Resource was successfully updated.' }
+        format.html { redirect_to new_resource_path, notice: 'Resource was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +54,7 @@ class ResourcesController < ApplicationController
     @resource.destroy
 
     respond_to do |format|
-      format.html { redirect_to resources_url }
+      format.html { redirect_to new_resource_path }
       format.json { head :no_content }
     end
   end

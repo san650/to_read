@@ -1,5 +1,8 @@
 <ul>
   <% @user.resources.each do |resource| %>
-    <li><%= link_to resource.link, resource.link, :target => '_blank' %></li>
+    <li>
+      <%= link_to resource.link, resource.link, :target => '_blank' %>
+      <%=raw render_date(resource.created_at) %>
+    </li>
   <% end %>
 </ul>

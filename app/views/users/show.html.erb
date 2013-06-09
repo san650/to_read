@@ -3,6 +3,7 @@
     <li>
       <%= link_to resource.link, resource.link, :target => '_blank' %>
       <%=raw render_date(resource.created_at) %>
+      <%=raw render_description(resource.description) %>
     </li>
   <% end %>
 </ul>

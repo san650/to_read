@@ -1,5 +1,5 @@
 class Resource < ActiveRecord::Base
-  attr_accessible :link
+  attr_accessible :link, :description
   has_many :bookmarks
 
   validates :link, :presence => true
@@ -9,6 +9,11 @@ class Resource < ActiveRecord::Base
   end
 
   after_create :assign_link_to_everyone
+
+  def self.build_from_text(text)
+    link, description = *text.split("\n", 2).map(&:strip)
+    Resource.new(link: link, description: description)
+  end
 
   private
 

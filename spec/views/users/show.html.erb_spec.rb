@@ -14,4 +14,8 @@ describe "users/show" do
   it "renders resource's created date" do
     expect(rendered).to match("about 1 year")
   end
+
+  it "renders resource's description" do
+    expect(rendered).to match("Lorem ipsum dolor")
+  end
 end

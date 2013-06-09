@@ -1,12 +1,23 @@
 require 'spec_helper'
 
 feature "Resources" do
-  scenario "User adds a new resource" do
+  scenario "User adds a resource" do
+    FactoryGirl.create(:user, name: "john")
+
     visit "/resources/new"
 
-    fill_in "resource_link", with: " http://www.google.com/ "
+    fill_in "resource_link", with: <<-EOT
+    http://www.google.com/
+    Google search engine
+    EOT
+
     click_button "Add"
 
     expect(page).to have_text("Resource was successfully created.")
+
+    visit "/john"
+
+    expect(page).to have_css('a[href="http://www.google.com/"]')
+    expect(page).to have_text("Google search engine")
   end
 end

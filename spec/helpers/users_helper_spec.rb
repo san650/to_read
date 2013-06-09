@@ -8,4 +8,21 @@ describe UsersHelper do
         to eq('<small class="date" title="2011-01-01 10:00:00 UTC">about 1 year</small>')
     end
   end
+
+  context "#render_description" do
+    it "escape description text" do
+      expect(render_description("<lorem ipsum dolor")).
+        to eq("<p>&lt;lorem ipsum dolor</p>")
+    end
+
+    it "doesn't render nil content" do
+      expect(render_description(nil)).
+        to eq(nil)
+    end
+
+    it "doesn't render empty content" do
+      expect(render_description("")).
+        to eq(nil)
+    end
+  end
 end

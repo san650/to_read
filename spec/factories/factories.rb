@@ -5,6 +5,7 @@ FactoryGirl.define do
 
   factory :resource do
     link "http://www.example.org/"
+    description "Lorem ipsum dolor"
     created_at 1.year.ago
 
     factory :google do

@@ -1,4 +1,6 @@
 ToRead::Application.routes.draw do
+  devise_for :users
+
   resources :resources
   match ':name' => 'users#show', :as => :user
   root :to => 'resources#new'

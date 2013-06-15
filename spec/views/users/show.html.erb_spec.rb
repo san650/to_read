@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "users/show" do
   before(:each) do
     @bookmark = FactoryGirl.create(:bookmark)
-    @user = assign(:user, @bookmark.user)
+    assign(:user, @bookmark.user)
     render
   end
 

@@ -1,10 +1,12 @@
 require 'spec_helper'
 
 feature "Resources" do
-  scenario "User adds a resource" do
-    FactoryGirl.create(:user, name: "john")
+  before(:each) do
+    sign_in_with_john
+  end
 
-    visit "/resources/new"
+  scenario "User adds a resource" do
+    visit "/"
 
     fill_in "resource_link", with: <<-EOT
     http://www.google.com/

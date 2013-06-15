@@ -22,6 +22,7 @@ end
 gem 'jquery-rails'
 gem 'therubyracer'
 gem 'pg'
+gem 'devise'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'

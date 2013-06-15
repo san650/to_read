@@ -1,6 +1,8 @@
 FactoryGirl.define do
   factory :user do
     name "john"
+    email "john@example.org"
+    password "password for john"
   end
 
   factory :resource do

@@ -1,9 +1,8 @@
-require 'spec_helper'
+require "spec_helper"
 
 feature "Users" do
   before(:each) do
-    FactoryGirl.create(:user, name: "john")
-    FactoryGirl.create(:bookmark)
+    sign_in_with_john
   end
 
   scenario "User views list of resources" do

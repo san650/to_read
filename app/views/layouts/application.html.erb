@@ -16,16 +16,22 @@
   </head>
   <body>
 
+  <% if user_signed_in? %>
     <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
         <div class="container-fluid">
           <ul class="nav">
             <li><%= link_to "Add", new_resource_path %></li>
-            <li><%= link_to "Me", user_path(:name => "santiago") %></li>
+            <li><%= link_to "Me", user_path(name: current_user.name) %></li>
+          </ul>
+
+          <ul class="nav pull-right">
+            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           </ul>
         </div>
       </div>
     </div>
+  <% end %>
 
     <div class="container-fluid">
       <div class="row-fluid">

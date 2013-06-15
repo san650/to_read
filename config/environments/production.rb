@@ -64,4 +64,8 @@ ToRead::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  config.action_mailer.default_url_options = { :host => 'to_read.herokuapp.com' }
+
+  # avoid accessing the DB in heroku
+  config.assets.initialize_on_precompile = false
 end

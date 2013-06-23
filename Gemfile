@@ -23,6 +23,7 @@ gem 'jquery-rails'
 gem 'therubyracer'
 gem 'pg'
 gem 'devise'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
@@ -30,6 +31,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda'
   gem 'timecop'
+  gem 'warden'
 end
 
 gem "therubyracer"

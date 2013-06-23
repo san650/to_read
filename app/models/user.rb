@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable
 
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
-  has_many :bookmarks, order: 'created_at ASC'
+  has_many :bookmarks, :conditions => { :pending => true }, order: 'created_at ASC'
   has_many :resources, through: :bookmarks
 end

@@ -1,8 +1,22 @@
 FactoryGirl.define do
   factory :user do
-    name "john"
-    email "john@example.org"
-    password "password for john"
+    name "user"
+    email "user@example.org"
+    password "password for user"
+
+    factory :john do
+      name "john"
+      email "john@example.com"
+    end
+
+    factory :user_with_bookmark do
+      name "user_with_bookmark"
+      email "user_with_bookmark@example.org"
+      password "password for user"
+      after :create do |user|
+        FactoryGirl.create :resource
+      end
+    end
   end
 
   factory :resource do
@@ -16,8 +30,8 @@ FactoryGirl.define do
   end
 
   factory :bookmark do
-    user
     resource
+    user
 
     factory :bookmark_read do
       pending false

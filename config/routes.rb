@@ -1,7 +1,12 @@
 ToRead::Application.routes.draw do
   devise_for :users
 
+  if Rails.env == 'test'
+    match '/users/show' => 'users#show'
+  end
+
   resources :resources
+  match 'bookmarks/archive/:id' => 'bookmarks#archive', :as => :bookmark_archive
   match ':name' => 'users#show', :as => :user
   root :to => 'resources#new'
 

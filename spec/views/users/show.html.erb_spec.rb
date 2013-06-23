@@ -18,4 +18,8 @@ describe "users/show" do
   it "renders resource's description" do
     expect(rendered).to match("Lorem ipsum dolor")
   end
+
+  it "renders archive link" do
+    expect(rendered).to match("Archive")
+  end
 end

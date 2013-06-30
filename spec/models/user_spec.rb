@@ -12,6 +12,22 @@ describe User do
     user.bookmarks.should be_empty
   end
 
+  context "#archived" do
+    it "resturns archived bookmarks" do
+      user = FactoryGirl.create(:user_with_bookmark)
+      bookmark = user.bookmarks.first
+      bookmark.update_attribute(:pending, false)
+
+      user.archived.should eq([bookmark])
+    end
+
+    it "returns empty when there isn't archived bookmarks" do
+      user = FactoryGirl.create(:user_with_bookmark)
+
+      user.archived.should be_empty
+    end
+  end
+
   context '#assign_link_to_everyone' do
     before do
       @user = FactoryGirl.create(:user)

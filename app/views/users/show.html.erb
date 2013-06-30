@@ -7,11 +7,8 @@
   end
 %>
   <% bookmarks.each do |bookmark| %>
-    <% resource = bookmark.resource  %>
     <li>
-      <%= link_to resource.link, resource.link, :target => '_blank' %>
-      <%=raw render_date(resource.created_at) %>
-      <%=raw render_description(resource.description) %>
+      <%= render partial: "resources/resource", locals: { resource: bookmark.resource } %>
       <%= form_for bookmark, :url => bookmark_archive_path(bookmark), :method => :put do |f|  %>
         <%= f.submit "Archive" %>
       <% end %>

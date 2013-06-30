@@ -30,7 +30,9 @@ feature "Resources" do
     expect(page).to have_css('a[href="http://www.example.org/"]')
     expect(page).to have_text("Lorem ipsum dolor")
 
-    click_on "Archive"
+    within(".content") do
+      click_on "Archive"
+    end
 
     expect(page).not_to have_text("Lorem ipsum dolor")
   end
@@ -50,5 +52,13 @@ feature "Resources" do
 
     click_link "Newests"
     expect(page.text).to match(/one second ago link.*ten seconds ago link/)
+  end
+
+  scenario "View archived bookmarks" do
+    FactoryGirl.create(:bookmark_read, :user => @user)
+
+    click_link "Archived"
+    expect(page).to have_css('a[href="http://www.example.org/"]')
+    expect(page).to have_text("Lorem ipsum dolor")
   end
 end

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   has_many :bookmarks, :conditions => { :pending => true }
   has_many :resources, through: :bookmarks
+  has_many :archived, :class_name => "Bookmark", foreign_key: "user_id", :conditions => { :pending => false }
 
   def self.assign_resource_to_everyone(resource)
     User.all.each do |user|

@@ -10,5 +10,6 @@ describe "layouts/_navbar" do
     expect(rendered).to match("Add")
     expect(rendered).to match("Me")
     expect(rendered).to match("Newests")
+    expect(rendered).to match("Archived")
   end
 end

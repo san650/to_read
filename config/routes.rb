@@ -7,6 +7,7 @@ ToRead::Application.routes.draw do
 
   resources :resources
   match 'bookmarks/archive/:id' => 'bookmarks#archive', :as => :bookmark_archive
+  match ':name/archived' => 'users#archived', :as => :archived
   match ':name(/:order)' => 'users#show', :as => :user
   root :to => 'resources#new'
 

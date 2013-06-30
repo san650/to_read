@@ -27,6 +27,18 @@ FactoryGirl.define do
     factory :google do
       link "http://www.google.com/"
     end
+
+    factory :resource_one_second_ago do
+      created_at 1.second.ago
+      link "http://www.example.org/one_second_ago"
+      description "one second ago link"
+    end
+
+    factory :resource_ten_seconds_ago do
+      created_at 10.second.ago
+      link "http://www.example.org/ten_seconds_ago"
+      description "ten seconds ago link"
+    end
   end
 
   factory :bookmark do

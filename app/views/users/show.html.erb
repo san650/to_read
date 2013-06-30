@@ -1,5 +1,12 @@
 <ul>
-  <% @user.bookmarks.each do |bookmark| %>
+<%
+  if @order_desc
+    bookmarks = @user.bookmarks.order("created_at DESC")
+  else
+    bookmarks = @user.bookmarks.order("created_at ASC")
+  end
+%>
+  <% bookmarks.each do |bookmark| %>
     <% resource = bookmark.resource  %>
     <li>
       <%= link_to resource.link, resource.link, :target => '_blank' %>

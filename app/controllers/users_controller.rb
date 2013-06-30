@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users/john.json
   def show
     @user = User.find_by_name(params[:name])
+    @order_desc = true if params[:order] == "desc"
     respond_to do |format|
       if @user
         format.html { render 'show' }

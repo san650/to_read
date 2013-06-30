@@ -7,7 +7,7 @@ ToRead::Application.routes.draw do
 
   resources :resources
   match 'bookmarks/archive/:id' => 'bookmarks#archive', :as => :bookmark_archive
-  match ':name' => 'users#show', :as => :user
+  match ':name(/:order)' => 'users#show', :as => :user
   root :to => 'resources#new'
 
   # The priority is based upon order of creation:

@@ -14,7 +14,7 @@ FactoryGirl.define do
       email "user_with_bookmark@example.org"
       password "password for user"
       after :create do |user|
-        FactoryGirl.create :resource
+        FactoryGirl.create(:bookmark, :user => user)
       end
     end
   end

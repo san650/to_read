@@ -40,6 +40,11 @@ describe ResourcesController do
         post :create, {:resource => valid_attributes}
         response.should redirect_to(new_resource_path)
       end
+
+      it "creates bookmarks for all users" do
+        User.should_receive(:assign_resource_to_everyone).and_call_original
+        post :create, {:resource => valid_attributes}
+      end
     end
 
     describe "with invalid params" do

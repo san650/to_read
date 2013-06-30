@@ -24,6 +24,7 @@ class ResourcesController < ApplicationController
 
     respond_to do |format|
       if @resource.save
+        User.assign_resource_to_everyone(@resource)
         format.html { redirect_to new_resource_path, notice: 'Resource was successfully created.' }
         format.json { render json: @resource, status: :created, location: @resource }
       else

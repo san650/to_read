@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature "Resources" do
   before(:each) do
-    sign_in_with(:john)
+    @user = sign_in_with(:john)
     visit "/"
   end
 
@@ -23,6 +23,8 @@ feature "Resources" do
   end
 
   scenario "User archives a resource" do
+    FactoryGirl.create(:bookmark, :user => @user)
+
     click_link "Me"
 
     expect(page).to have_css('a[href="http://www.example.org/"]')

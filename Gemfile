@@ -32,6 +32,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'timecop'
   gem 'warden'
+  gem 'database_cleaner'
 end
 
 gem "therubyracer"

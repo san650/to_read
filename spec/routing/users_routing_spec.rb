@@ -13,5 +13,13 @@ describe UsersController do
     it "/john/archived routes to #archived" do
       get("/john/archived").should route_to("users#archived", :name => "john")
     end
+
+    it "/customize routes to #customize" do
+      get("/customize").should route_to("users#customize")
+    end
+
+    it "PUT /customize routes to #edit" do
+      put("/customize").should route_to("users#edit")
+    end
   end
 end

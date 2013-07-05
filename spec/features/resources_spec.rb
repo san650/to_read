@@ -61,4 +61,15 @@ feature "Resources" do
     expect(page).to have_css('a[href="http://www.example.org/"]')
     expect(page).to have_text("Lorem ipsum dolor")
   end
+
+  scenario "Programmer adds custom_javascript" do
+    click_link "Customize"
+    expect(page).to have_text("Edit custom javascript")
+
+    fill_in "customize[custom_javascript]", with: "var lorem;"
+    click_on "Save"
+    expect {
+      page.all(:xpath, "//script[contains(text(), 'var lorem')]").any?
+    }.to be_true
+  end
 end

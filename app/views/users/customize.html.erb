@@ -1,0 +1,9 @@
+<h2>Edit custom javascript</h2>
+<%= form_for :customize, method: :put do |f| %>
+  <div>
+    <%= f.text_area :custom_javascript, value: current_user.custom_javascript, class: 'span10' %>
+  </div>
+  <div>
+    <%= f.submit "Save", :class => 'btn btn-primary' %>
+  </div>
+<% end %>

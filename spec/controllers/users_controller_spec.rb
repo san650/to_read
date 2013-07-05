@@ -49,4 +49,11 @@ describe UsersController do
       expect(response.status).to eq(404)
     end
   end
+
+  describe "GET customize" do
+    it "returns 200" do
+      get :customize
+      expect(response).to be_success
+    end
+  end
 end

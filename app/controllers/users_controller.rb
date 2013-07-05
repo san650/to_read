@@ -26,4 +26,17 @@ class UsersController < ApplicationController
       end
     end
   end
+
+  # GET /customize
+  def customize
+    respond_to do |format|
+      format.html { render }
+    end
+  end
+
+  # PUT /customize
+  def edit
+    current_user.update_attribute(:custom_javascript, params[:customize][:custom_javascript])
+    redirect_to customize_url
+  end
 end

@@ -35,5 +35,16 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
 
+    <% if user_signed_in? %>
+      <script type="text/javascript" data-test="custom_javascript">
+        try {
+          <%=raw current_user.custom_javascript %>
+        }catch(e){
+          if(typeof console !== 'undefined' && console.warn) {
+            console.warn(e);
+          }
+        }
+      </script>
+    <% end %>
   </body>
 </html>

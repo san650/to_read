@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   has_many :resources, through: :bookmarks
   has_many :archived, :class_name => "Bookmark", foreign_key: "user_id", :conditions => { :pending => false }, include: :resource
 
+  def image_url
+    @image_url ||= Gravatar.new(email).image_url
+  end
+
   def self.assign_resource_to_everyone(resource)
     User.all.each do |user|
       user.bookmarks.create({

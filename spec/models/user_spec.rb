@@ -40,4 +40,11 @@ describe User do
       @user.bookmarks.count.should == 1
     end
   end
+
+  it "#image_url" do
+    Gravatar.any_instance.stub(:image_url).and_return("gravatar-url")
+    @user = FactoryGirl.create(:user)
+
+    expect(@user.image_url).to eq("gravatar-url")
+  end
 end

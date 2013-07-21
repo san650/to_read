@@ -1,0 +1,15 @@
+.author {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: transparent none no-repeat 50% 50%;
+  background-size: contain;
+  text-indent: -1000px;
+  overflow: hidden;
+}
+<% User.all.each do |user| %>
+.<%= user.name %> {
+  background-image: url("<%= user.image_url %>");
+}
+<% end %>
+

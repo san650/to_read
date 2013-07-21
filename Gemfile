@@ -23,6 +23,7 @@ gem 'jquery-rails'
 gem 'therubyracer'
 gem 'pg'
 gem 'devise'
+gem 'gravatar-ultimate'
 
 group :development, :test do
   gem 'sqlite3'

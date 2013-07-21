@@ -1,6 +1,7 @@
 class Resource < ActiveRecord::Base
   attr_accessible :link, :description
   has_many :bookmarks
+  belongs_to :user
 
   validates :link, :presence => true
 

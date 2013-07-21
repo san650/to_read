@@ -9,7 +9,9 @@
   <% bookmarks.each do |bookmark| %>
     <li>
       <%= render partial: "resources/resource", locals: { resource: bookmark.resource } %>
-      <%= raw render_user(bookmark.user) %>
+      <% if bookmark.resource.user %>
+        <%= raw render_user(bookmark.resource.user) %>
+      <% end %>
       <%= form_for bookmark, :url => bookmark_archive_path(bookmark), :method => :put do |f|  %>
         <%= f.submit "Archive" %>
       <% end %>

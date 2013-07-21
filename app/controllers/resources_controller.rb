@@ -21,6 +21,7 @@ class ResourcesController < ApplicationController
   # POST /resources.json
   def create
     @resource = Resource.build_from_text(params[:resource][:link])
+    @resource.user = current_user
 
     respond_to do |format|
       if @resource.save

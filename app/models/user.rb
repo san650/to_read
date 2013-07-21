@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   has_many :bookmarks, :conditions => { :pending => true }, include: :resource
-  has_many :resources, through: :bookmarks
+  has_many :resources
   has_many :archived, :class_name => "Bookmark", foreign_key: "user_id", :conditions => { :pending => false }, include: :resource
 
   def image_url

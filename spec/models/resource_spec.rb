@@ -9,7 +9,8 @@ describe Resource do
 
   it "trims link" do
     resource = Resource.create(link: ' http://www.google.com/ ')
-    resource.link.should == 'http://www.google.com/'
+
+    expect(resource.link).to eq("http://www.google.com/")
   end
 
   it "builds from string" do
@@ -21,7 +22,8 @@ describe Resource do
       EOT
     )
 
-    resource.link.should == "http://www.example.org/"
-    resource.description.should == "This is an example"
+    expect(resource.link).to eq("http://www.example.org/")
+    expect(resource.description).to eq("This is an example")
+    expect(resource.description_html).to eq("<p>This is an example</p>\n")
   end
 end

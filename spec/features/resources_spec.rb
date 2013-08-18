@@ -48,10 +48,10 @@ feature "Resources" do
         :resource => FactoryGirl.build(:resource_ten_seconds_ago))
 
     click_link "Me"
-    expect(page.text).to match(/ten seconds ago link.*one second ago link/)
+    expect(page.text).to match(/ten_seconds_ago.*one_second_ago/)
 
     click_link "Newests"
-    expect(page.text).to match(/one second ago link.*ten seconds ago link/)
+    expect(page.text).to match(/one_second_ago.*ten_seconds_ago/)
   end
 
   scenario "View archived bookmarks" do

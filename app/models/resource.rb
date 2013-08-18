@@ -1,5 +1,5 @@
 class Resource < ActiveRecord::Base
-  attr_accessible :link, :description
+  attr_accessible :link, :description, :description_html
   has_many :bookmarks
   belongs_to :user
 
@@ -11,6 +11,7 @@ class Resource < ActiveRecord::Base
 
   def self.build_from_text(text)
     link, description = *text.split("\n", 2).map(&:strip)
-    Resource.new(link: link, description: description)
+    html = GitHub::Markdown.render_gfm(description)
+    Resource.new(link: link, description: description, description_html: html)
   end
 end

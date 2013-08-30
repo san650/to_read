@@ -16,7 +16,7 @@ feature "Resources" do
 
     expect(page).to have_text("Resource was successfully created.")
 
-    click_link "Me"
+    click_link "Ascending"
 
     expect(page).to have_css('a[href="http://www.google.com/"]')
     expect(page).to have_text("Google search engine")
@@ -25,7 +25,7 @@ feature "Resources" do
   scenario "User archives a resource" do
     FactoryGirl.create(:bookmark, :user => @user)
 
-    click_link "Me"
+    click_link "Ascending"
 
     expect(page).to have_css('a[href="http://www.example.org/"]')
     expect(page).to have_text("Lorem ipsum dolor")
@@ -47,10 +47,10 @@ feature "Resources" do
         :created_at => 10.seconds.ago,
         :resource => FactoryGirl.build(:resource_ten_seconds_ago))
 
-    click_link "Me"
+    click_link "Ascending"
     expect(page.text).to match(/ten_seconds_ago.*one_second_ago/)
 
-    click_link "Newests"
+    click_link "Descending"
     expect(page.text).to match(/one_second_ago.*ten_seconds_ago/)
   end
 

@@ -1,4 +1,4 @@
-class BookmarkCatalog
+class BookmarksCatalog
   include ActionView::Helpers::DateHelper
 
   def initialize(user)

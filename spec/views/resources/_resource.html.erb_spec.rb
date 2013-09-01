@@ -13,10 +13,6 @@ describe "resources/_resource" do
     expect(rendered).to match("http://example.org")
   end
 
-  it "renders resource's created date" do
-    expect(rendered).to match("about 1 year")
-  end
-
   it "renders resource's description" do
     expect(rendered).to match("<p>Lorem ipsum dolor</p>")
   end

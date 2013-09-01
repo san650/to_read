@@ -1,20 +1,16 @@
-<ul>
-<%
-  if @order_desc
-    bookmarks = @user.bookmarks.order("created_at DESC")
-  else
-    bookmarks = @user.bookmarks.order("created_at ASC")
-  end
-%>
-  <% bookmarks.each do |bookmark| %>
-    <li>
-      <%= render partial: "resources/resource", locals: { resource: bookmark.resource } %>
-      <% if bookmark.resource.user %>
-        <%= raw render_user(bookmark.resource.user) %>
-      <% end %>
-      <%= form_for bookmark, :url => bookmark_archive_path(bookmark), :method => :put do |f|  %>
-        <%= f.submit "Archive" %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<% @catalog.each do |date, bookmarks| %>
+  <h3><%= date %></h3>
+  <ul>
+    <% bookmarks.each do |bookmark| %>
+      <li>
+        <%= render partial: "resources/resource", locals: { resource: bookmark.resource } %>
+        <% if bookmark.resource.user %>
+          <%= raw render_user(bookmark.resource.user) %>
+        <% end %>
+        <%= form_for bookmark, :url => bookmark_archive_path(bookmark), :method => :put do |f|  %>
+          <%= f.submit "Archive" %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

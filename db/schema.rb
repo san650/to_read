@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130818175550) do
+ActiveRecord::Schema.define(:version => 20130922230312) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20130818175550) do
     t.text     "description"
     t.integer  "user_id"
     t.text     "description_html"
+    t.string   "content_type"
   end
 
   create_table "user_resources", :force => true do |t|

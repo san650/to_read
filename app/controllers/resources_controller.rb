@@ -10,6 +10,7 @@ class ResourcesController < ApplicationController
       User.assign_resource_to_everyone(@resource)
       redirect_to root_path, notice: 'Resource was successfully created.'
     else
+      @snippet = Snippet.new
       render "home/index"
     end
   end

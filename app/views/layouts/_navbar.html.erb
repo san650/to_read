@@ -6,6 +6,7 @@
         <li><%= link_to "Ascending", user_path(name: current_user.name) %></li>
         <li><%= link_to "Descending", user_path(name: current_user.name, order: "desc") %></li>
         <li><%= link_to "Archived", archived_path(name: current_user.name) %></li>
+        <li><%= link_to "Snippets", user_snippets_path(name: current_user.name) %></li>
         <li><%= link_to "Customize", customize_path %></li>
       </ul>
 

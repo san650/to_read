@@ -67,4 +67,7 @@ FactoryGirl.define do
       deleted true
     end
   end
+
+  factory :snippet do
+  end
 end

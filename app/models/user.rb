@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :bookmarks, :conditions => { :pending => true }, include: :resource
   has_many :resources
   has_many :archived, :class_name => "Bookmark", foreign_key: "user_id", :conditions => { :pending => false }, include: :resource
+  has_many :snippets
 
   def image_url
     @image_url ||= Gravatar.new(email).image_url

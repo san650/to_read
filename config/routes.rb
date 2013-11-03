@@ -5,11 +5,13 @@ ToRead::Application.routes.draw do
     match '/users/show' => 'users#show'
   end
 
+  resources :snippets, only: [:create, :update, :destroy]
   resources :resources, only: [:create]
   match 'bookmarks/archive/:id' => 'bookmarks#archive', :as => :bookmark_archive
   get 'customize' => 'users#customize', :as => :customize
   put 'customize' => 'users#edit'
   match ':name/archived' => 'users#archived', :as => :archived
+  match ':name/snippets' => 'snippets#index', :as => :user_snippets
   match ':name(/:order)' => 'users#show', :as => :user
 
   root :to => 'home#index'

@@ -3,5 +3,6 @@ class HomeController < ApplicationController
 
   def index
     @resource = Resource.new
+    @snippet = Snippet.new
   end
 end

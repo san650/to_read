@@ -69,5 +69,8 @@ FactoryGirl.define do
   end
 
   factory :snippet do
+    title "Dummy title"
+    raw "Dummy raw text"
+    user
   end
 end

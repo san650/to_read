@@ -41,12 +41,4 @@ feature "Snippets" do
     expect(page).not_to have_content("This is my dummy snippet")
     expect(page).not_to have_content("What an awesome snippet")
   end
-
-  scenario "johns fails on adding a new snippet" do
-    within ".new_snippet" do
-      click_button "Add"
-    end
-
-    expect(page).to have_text("")
-  end
 end

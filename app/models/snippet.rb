@@ -1,6 +1,8 @@
 class Snippet < ActiveRecord::Base
   belongs_to :user
   attr_accessible :html, :raw, :title, :user
+  validates_presence_of :title, :raw, :user
+
 
   def self.build_from_text(text, current_user)
     title, snippet = *text.split("\n", 2).map(&:strip)

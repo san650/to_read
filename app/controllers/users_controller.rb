@@ -4,10 +4,17 @@ class UsersController < ApplicationController
   # GET /john
   # GET /john/desc
   def show
-    @user = User.find_by_name(params[:name])
-    @order_desc = true if params[:order] == "desc"
+    user = User.find_by_name(params[:name])
+
     respond_to do |format|
-      if @user
+      if user
+        manager = BookmarksCatalog.new(user)
+        if params[:order] == "desc"
+          @catalog = manager.descending
+        else
+          @catalog = manager.ascending
+        end
+
         format.html { render 'show' }
       else
         format.html { render :file => "public/404", :formats => [:html], :status => 404 }

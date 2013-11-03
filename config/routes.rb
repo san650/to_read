@@ -5,13 +5,14 @@ ToRead::Application.routes.draw do
     match '/users/show' => 'users#show'
   end
 
-  resources :resources
+  resources :resources, only: [:create]
   match 'bookmarks/archive/:id' => 'bookmarks#archive', :as => :bookmark_archive
   get 'customize' => 'users#customize', :as => :customize
   put 'customize' => 'users#edit'
   match ':name/archived' => 'users#archived', :as => :archived
   match ':name(/:order)' => 'users#show', :as => :user
-  root :to => 'resources#new'
+
+  root :to => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

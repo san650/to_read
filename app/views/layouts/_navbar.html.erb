@@ -2,7 +2,7 @@
   <div class="navbar-inner">
     <div class="container-fluid">
       <ul class="nav">
-        <li><%= link_to "Add", new_resource_path %></li>
+        <li><%= link_to "Add", root_path %></li>
         <li><%= link_to "Ascending", user_path(name: current_user.name) %></li>
         <li><%= link_to "Descending", user_path(name: current_user.name, order: "desc") %></li>
         <li><%= link_to "Archived", archived_path(name: current_user.name) %></li>

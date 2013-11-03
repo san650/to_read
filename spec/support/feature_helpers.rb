@@ -7,4 +7,8 @@ module FeatureHelpers
     login_as(user)
     user
   end
+
+  def sign_out
+    logout
+  end
 end

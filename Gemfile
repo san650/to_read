@@ -34,6 +34,9 @@ group :development, :test do
   gem 'timecop'
   gem 'warden'
   gem 'database_cleaner'
+
+  gem 'debugger'
+  gem 'quiet_assets'
 end
 
 gem "therubyracer"
@@ -54,4 +57,3 @@ gem "github-markdown"
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'

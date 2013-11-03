@@ -3,14 +3,23 @@ FactoryGirl.define do
     "user#{n}@example.com"
   end
 
+  sequence :name do |n|
+    "user#{n}"
+  end
+
   factory :user do
-    name "user"
+    name
     email
     password "password for user"
 
     factory :john do
       name "john"
       email "john@example.com"
+    end
+
+    factory :mary do
+      name "mary"
+      email "mary@example.com"
     end
 
     factory :user_with_bookmark do
@@ -57,5 +66,11 @@ FactoryGirl.define do
     factory :bookmark_deleted do
       deleted true
     end
+  end
+
+  factory :snippet do
+    title "Dummy title"
+    raw "Dummy raw text"
+    user
   end
 end

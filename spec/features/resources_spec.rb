@@ -7,12 +7,14 @@ feature "Resources" do
   end
 
   scenario "User adds a resource" do
-    fill_in "resource_link", with: <<-EOT
-    http://www.google.com/
-    Google search engine
-    EOT
+    within(".new_resource") do
+      fill_in "resource_link", with: <<-EOT
+      http://www.google.com/
+      Google search engine
+      EOT
 
-    click_button "Add"
+      click_button "Add"
+    end
 
     expect(page).to have_text("Resource was successfully created.")
 

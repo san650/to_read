@@ -1,3 +1,7 @@
+.field_with_errors textarea{
+  border-color: #b94a48
+}
+
 .author {
   display: block;
   width: 30px;
@@ -7,9 +11,5 @@
   text-indent: -1000px;
   overflow: hidden;
 }
-<% User.all.each do |user| %>
-.<%= user.name %> {
-  background-image: url("<%= user.image_url %>");
-}
-<% end %>
-
+.ignacio { background-color: #FD6519; }
+.santiago { background-color: #868300; }

@@ -13,4 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require google-code-prettify
 //= require_tree .
+
+$(function(){
+  $("pre").addClass("prettyprint");
+  prettyPrint();
+});

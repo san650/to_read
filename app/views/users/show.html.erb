@@ -1,16 +1,8 @@
 <% @catalog.each do |date, bookmarks| %>
   <h3><%= date %></h3>
-  <ul>
+  <dl>
     <% bookmarks.each do |bookmark| %>
-      <li>
-        <%= render partial: "resources/resource", locals: { resource: bookmark.resource } %>
-        <% if bookmark.resource.user %>
-          <%= raw render_user(bookmark.resource.user) %>
-        <% end %>
-        <%= form_for bookmark, :url => bookmark_archive_path(bookmark), :method => :put do |f|  %>
-          <%= f.submit "Archive" %>
-        <% end %>
-      </li>
+      <%= render partial: "resources/resource", locals: { resource: bookmark.resource, bookmark: bookmark } %>
     <% end %>
-  </ul>
+  </dl>
 <% end %>

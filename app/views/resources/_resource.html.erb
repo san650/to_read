@@ -1,2 +1,16 @@
-<%= link_to resource.link, resource.link, :target => '_blank' %>
-<%=raw resource.description_html %>
+<dt>
+  <%= link_to resource.link, resource.link, :target => '_blank' %>
+</dt>
+<dd>
+  <%=raw resource.description_html %>
+  <% if resource.user %>
+    <div class="pull-right">
+      <%= raw render_user(resource.user) %>
+    </div>
+  <% end %>
+  <%= form_for bookmark, :url => bookmark_archive_path(bookmark), :method => :put do |f|  %>
+    <button type="submit" class="btn btn-xs pull-right" title="Archive">
+      <i class="icon icon-trash"></i>
+    </button>
+  <% end %>
+</dd>

@@ -1,7 +1,5 @@
-<ul>
- <% @user.archived.each do |bookmark| %>
-    <li>
-      <%= render partial: "resources/resource", locals: { resource: bookmark.resource } %>
-    </li>
+<dl>
+  <% @user.archived.each do |bookmark| %>
+    <%= render partial: "resources/resource", locals: { resource: bookmark.resource, bookmark: bookmark } %>
   <% end %>
 </ul>

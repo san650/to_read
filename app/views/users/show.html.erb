@@ -1,8 +1,8 @@
 <% @catalog.each do |date, bookmarks| %>
-  <h3><%= date %></h3>
-  <dl>
+  <section>
+    <h3><%= date %></h3>
     <% bookmarks.each do |bookmark| %>
       <%= render partial: "resources/resource", locals: { resource: bookmark.resource, bookmark: bookmark } %>
     <% end %>
-  </dl>
+  </section>
 <% end %>

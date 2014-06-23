@@ -47,15 +47,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
-    columnize (0.3.6)
     commonjs (0.2.6)
     database_cleaner (1.0.1)
-    debugger (1.6.1)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.2.3)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.2.3)
     devise (2.2.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -95,8 +88,6 @@ GEM
     orm_adapter (0.4.0)
     pg (0.15.1)
     polyglot (0.3.3)
-    quiet_assets (1.0.2)
-      railties (>= 3.1, < 5.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -187,7 +178,6 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 3.2.1)
   database_cleaner
-  debugger
   devise
   factory_girl_rails
   github-markdown
@@ -195,7 +185,6 @@ DEPENDENCIES
   jquery-rails
   less-rails
   pg
-  quiet_assets
   rails (= 3.2.13)
   rspec-rails
   sass-rails (~> 3.2.3)
